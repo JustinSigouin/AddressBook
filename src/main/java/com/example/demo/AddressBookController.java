@@ -24,9 +24,10 @@ public class AddressBookController {
     @GetMapping("/addBuddy")
     public AddressBook createBuddy(@RequestParam("bookId") int bookId,
                                    @RequestParam("name") String name,
-                                   @RequestParam("number") String number) {
+                                   @RequestParam("number") String number,
+                                   @RequestParam("address") String address) {
        AddressBook addressBook = addressBookRepository.findById(bookId);
-       addressBook.addBuddy(new BuddyInfo(name, number));
+       addressBook.addBuddy(new BuddyInfo(name, number, address));
        addressBookRepository.save(addressBook);
        return addressBook;
     }

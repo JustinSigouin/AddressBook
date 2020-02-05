@@ -35,14 +35,6 @@ public class AddressBook {
                 '}';
     }
 
-    public static void main(String []args) {
-        AddressBook book = new AddressBook();
-        book.addBuddy(new BuddyInfo("Justin", "123"));
-        book.addBuddy(new BuddyInfo("An", "1234"));
-        book.addBuddy(new BuddyInfo("Josh", "12345"));
-        System.out.println(book);
-    }
-
     public Integer getId() {
         return id;
     }

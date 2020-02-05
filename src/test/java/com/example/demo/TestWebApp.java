@@ -26,7 +26,7 @@ public class TestWebApp {
     private AddressBookRepository service;
 
     @Test
-    public void greetingShouldReturnMessageFromService() throws Exception {
+    public void testAddressBook() throws Exception {
         AddressBook addressBook = new AddressBook();
         addressBook.setId(1);
         when(service.findById(1)).thenReturn(addressBook);
@@ -34,7 +34,7 @@ public class TestWebApp {
 
         this.mockMvc.perform(get("/create")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string(containsString("{\"id\":1,\"buddyList\":[]}")));
-        this.mockMvc.perform(get("/addBuddy?bookId=1&name=justin&number=55")).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("{\"id\":1,\"buddyList\":[{\"id\":null,\"name\":\"justin\",\"phoneNumber\":\"55\"}]}")));
+        this.mockMvc.perform(get("/addBuddy?bookId=1&name=justin&number=55&address=address")).andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString("{\"id\":1,\"buddyList\":[{\"id\":null,\"name\":\"justin\",\"phoneNumber\":\"55\",\"address\":\"address\"}]}")));
     }
 }
