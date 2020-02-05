@@ -17,7 +17,7 @@ public class AddressBookController {
     @GetMapping("/create")
     public AddressBook create() {
         AddressBook addressBook = new AddressBook();
-        addressBookRepository.save(addressBook);
+        addressBook = addressBookRepository.save(addressBook);
         return addressBook;
     }
 
